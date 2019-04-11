@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Canvas</title>
+    <style>
+    #canvas{
+        border: 1px solid #000;
+
+    }
+    </style>
+        
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+        var tahvel = document.getElementById("canvas")
+        var ctx = tahvel.getContext("2d");
+        
+        var tahvel_asukoht= tahvel.getBoundingClientRect();
+        var hx, hy;
+        var hiir_all= false;
+        tahvel.addEventListener('mousedown', function(e){
+            hx=e.clientX - tahvel_asukoht.x;
+            hy=e.clientY- tahvel_asukoht.y;
+            hiir_all=true;
+        });
+        tahvel.addEventListener('mouseup', function(e){
+           // hx=e.clientX - tahvel_asukoht.x;
+            //hy=e.clientY- tahvel_asukoht.y;
+         hiir_all=false;
+        });
+  
+        tahvel.addEventListener('mousemove', function(e){
+            hx=e.clientX - tahvel_asukoht.x;
+            hy=e.clientY- tahvel_asukoht.y;
+            if(hiir_all==true){
+            
+            ctx.lineTo(hx,hy);
+            
+            ctx.strokeStyle(document.getElementById("v2rv"));
+            ctx.stroke();
+            
+            }else{
+                ctx.moveTo(hx, hy);
+            }
+            
+        });
+  
+  /*  var  joonista =function(){
+        tahvel.addEventListener('mousemove', function(e){
+            hx=e.clientX - tahvel_asukoht.x;
+            hy=e.clientY- tahvel_asukoht.y;
+            
+            ctx.beginPath();
+            ctx.arc(hx,hy,10,0,2*Math.PI);
+            ctx.fill();
+            
+        });
+    };*/
+   /* if(hiir_all===true){
+    joonista();};
+        */
+
+        ctx.clearRect(0,0,tahvel.width, tahvel.height)
+    </script>
+
+    <input type="text" id="v2rv" value="000000">
+</body>
+</html>
