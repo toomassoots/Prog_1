@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+    <title>Joonistus</title>
+    <style>
+    #canvas{
+        border: 1px solid #000;
+
+    }
+    </style>
+        
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+        var tahvel = document.getElementById("canvas");
+        var ctx = tahvel.getContext("2d");
+        //auto
+        var autonina={
+        ninaalgus: ctx.moveTo(400,200),
+        esimene: ctx.lineTo(300,200),
+        teine: ctx.lineTo(200,250),
+        kolmas: ctx.lineTo(125,250),
+        neljas: ctx.lineTo(125,290),
+        viies: ctx.lineTo(115,290),
+        kuues: ctx.lineTo(115,300),
+        seitsmes: ctx.lineTo(165,300),
+        esimenekoobas: ctx.arc(200, 300, 35, 0, Math.PI, 1),
+        keskosa: ctx.moveTo(235,300),
+        keskosajoon: ctx.lineTo(450,300),
+        tagumineosa: ctx.moveTo(520,300),
+        tagumineesimene:ctx.lineTo(580,300),
+        tagumineteine:ctx.lineTo(580,290),
+        taguminekolmas:ctx.lineTo(570,290),
+        tagumineneljas:ctx.lineTo(570,240),
+        tagumineviies:ctx.lineTo(510,240),
+        taguminekuues:ctx.lineTo(460,200),
+        tagumineseitsmes:ctx.lineTo(400,200),
+        l6pp: ctx.stroke()}
+        
+     
+        //koopad
+        var koopad={
+       /*  algus: ctx.beginPath(),
+        esimenekoobas: ctx.arc(200, 300, 35, 0, Math.PI, 1),
+        esimenlopp:ctx.stroke(),*/
+        taguminealgus: ctx.beginPath(),
+        taguminekoobas: ctx.arc(485, 300, 35, 0, Math.PI, 1),
+        taguminelopp: ctx.stroke()
+        
+        }
+       
+        var ratad={
+        esiratasalgus: ctx.beginPath(),
+        esiratas: ctx.arc(200,302, 30,0,2*Math.PI),
+        ratasesimene:ctx.fillStyle="black",
+        fillratas: ctx.fill(),
+        esirataslopp: ctx.stroke(),
+        taguratasalgus: ctx.beginPath(),
+        taguratas: ctx.arc(485,302, 30,0,2*Math.PI),
+        ratastagumine:ctx.fillStyle="black",
+        fillratas: ctx.fill(),
+        tagurataslopp: ctx.stroke()
+
+        }
+        // esimene uks
+        var esiuks={
+        uksalgus: ctx.beginPath(),
+        uks:ctx.moveTo(300, 205),
+        uksesimene:ctx.lineTo(240, 235),
+        uksteine:ctx.lineTo(240,295),
+        ukskolmas:ctx.lineTo(240,295),
+        uksneljas:ctx.lineTo(340,295),
+        uksviies:ctx.lineTo(340,205),
+        uksv2rv:ctx.fillStyle="green",
+        fillklaas: ctx.fill(),
+        ukssulge: ctx.closePath(),
+        ukslopp: ctx.stroke()
+            }
+        //klaas_uks
+        var uksklaas={
+        klaasalgus:ctx.beginPath(),
+        klaas: ctx.moveTo(310, 210),
+        klaasesimene: ctx.lineTo(250, 240),
+        klaasteine: ctx.lineTo(250,250),
+        klaaskolmas: ctx.lineTo(250,250),
+        klaasneljas: ctx.lineTo(330,250),
+        klaasviies: ctx.lineTo(330,210),
+        klaasv2rv:ctx.fillStyle="blue",
+        fillklaas: ctx.fill(),
+        klaassulge: ctx.closePath(),
+        klaaslopp:ctx.stroke()
+            }
+        /*//tagumine uks
+        ctx.beginPath();
+        ctx.moveTo(360,295);
+        ctx.lineTo(445,295);
+        ctx.lineTo(445,205);
+        ctx.lineTo(360,205);
+        ctx.closePath()      
+        ctx.stroke();*/
+
+    </script>
+</body>
+</html>

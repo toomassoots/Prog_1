@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Canvas2</title>
+    <style>
+    #canvas{
+        border: 1px solid #000;
+
+    }
+    </style>
+    <script src="class/pall.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    
+    <script>
+        var tahvel = document.getElementById("canvas");
+        var ctx = tahvel.getContext("2d");
+        ctx.clearRect(0,0,tahvel.width, tahvel.height)
+        var tahvel_asukoht= tahvel.getBoundingClientRect();
+        var hx, hy;
+        
+        var pall = new Pall(100, 200, 30, "#0000FF");
+        pall.update = function() {
+            if(this.hover) {
+                this.x=hx;
+                this.y=hy;
+                this.color = "#FF0000";
+
+            }else{
+                this.color = "#0000FF";
+            }
+        }
+        pall.draw(ctx);
+        var hiir_all= false;
+        window.addEventListener('mousedown', function(e){
+            
+            hiir_all=true;
+        });
+        window.addEventListener('mouseup', function(e){
+           // hx=e.clientX - tahvel_asukoht.x;
+            //hy=e.clientY- tahvel_asukoht.y;
+         hiir_all=false;
+        });
+        window.addEventListener('mousemove', function(e){
+            hx=e.clientX - tahvel_asukoht.x;
+            hy=e.clientY- tahvel_asukoht.y;
+
+            var kaugusx= pall.x-hx;
+            var kaugusy= pall.y-hy;
+            var kaugus=Math.sqrt(kaugusx*kaugusx+kaugusy*kaugusy);
+           if(kaugus<=pall.radius && hiir_all==true){
+
+                pall.hover=true;
+
+            }else{
+                pall.hover=false;
+            };
+            ctx.clearRect(0,0,tahvel.width, tahvel.height)
+            pall.draw(ctx);
+       });
+        
+    </script>
+</body>
+</html>

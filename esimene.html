@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src=""></script>
+</head>
+<body>
+    <h1 id="pealkiri"></h1>
+    <script>
+        //window(browseri akna suhtes) ja document(html dokumendi suhtes) objekt , console
+        //window.alert("Tere!");
+
+       
+
+
+        console.log(window);
+        console.log("Tere!");
+        
+        document.write("Tere!");
+
+        //var pealkiri2 = document.getElementById("pealkiri").innerHTML="IE11";
+        var pealkiri =document.getElementById("pealkiri")
+        pealkiri.innerHTML="IE11";
+        pealkiri.innerHTML +=" Lisame teksti juurde";
+        var nimi= prompt("Sisesta nimi: ");
+        document.write("<p>Tere "+ nimi+"</p>")
+        
+
+        console.log(pealkiri);
+    </script>
+    <script src="numbrid.js"></script>
+</body>
+</html>
